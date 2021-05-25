@@ -1,0 +1,42 @@
+{
+  "virtualLab" : [ {
+    "id" : "virtual-lab:52113287680000",
+    "displayName" : "REST Lab",
+    "applicationModelId" : "AOS_AccountServiceApplicationModel",
+    "connector" : [ {
+      "id" : "httpProxyConnector",
+      "properties" : {
+        "bindPort" : 9000
+      },
+      "connectorType" : "httpProxy"
+    } ],
+    "virtualServiceInstance" : [ {
+      "virtualServiceId" : "AccountLoginRequestInterface",
+      "serviceMode" : "SIMULATE_SERVICE",
+      "endpoints" : [ {
+        "properties" : {
+          "httpServiceUrl" : "http://nimbusserver.aos.com:8001/accountservice/AccountLoginRequest"
+        },
+        "connectorId" : "httpProxyConnector"
+      } ]
+    }, {
+      "virtualServiceId" : "GetAccountConfigurationRequestInterface",
+      "serviceMode" : "SIMULATE_SERVICE",
+      "endpoints" : [ {
+        "properties" : {
+          "httpServiceUrl" : "http://nimbusserver.aos.com:8001/accountservice/GetAccountConfigurationRequest"
+        },
+        "connectorId" : "httpProxyConnector"
+      } ]
+    }, {
+      "virtualServiceId" : "AccountLogoutRequestInterface",
+      "serviceMode" : "SIMULATE_SERVICE",
+      "endpoints" : [ {
+        "properties" : {
+          "httpServiceUrl" : "http://nimbusserver.aos.com:8001/accountservice/AccountLogoutRequest"
+        },
+        "connectorId" : "httpProxyConnector"
+      } ]
+    } ]
+  } ]
+}
